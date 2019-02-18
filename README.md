@@ -45,6 +45,10 @@ head -c 16 /dev/urandom | xxd -ps
 ```bash
 ./mtproto-proxy -u nobody -p 8888 -H 443 -S <secret> --aes-pwd proxy-secret proxy-multi.conf -M 1
 ```
+## GCP/AWS
+```
+./mtproto-proxy -u nobody -p 8888 -H 443 -S < secret > --aes-pwd proxy-secret proxy-multi.conf -M 1 --nat-info <内网IP>:<公网IP>
+```
 ... where:
 - `nobody` is the username. `mtproto-proxy` calls `setuid()` to drop privilegies.
 - `443` is the port, used by clients to connect to the proxy.
